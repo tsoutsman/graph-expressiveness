@@ -16,13 +16,11 @@ fn main() {
     for n in 1..=max_vertices {
         println!("------- {n} -------");
         let id_result = find_indistinguishable(n, connected, id_gnn_fast::embed);
-        display(id_result.clone());
         let id_flattened = id_result.into_iter().flatten();
         let id_count = id_flattened.clone().count();
         println!("     id: {id_count}");
 
         let wl_result = find_indistinguishable(n, connected, wl::embed);
-        display(wl_result.clone());
         let wl_flattened = wl_result.into_iter().flatten();
         let wl_count = wl_flattened.clone().count();
         println!("     wl: {wl_count}");
@@ -38,28 +36,28 @@ fn main() {
     }
 }
 
-fn display(result: Vec<Vec<usize>>) {
-    let mut result = result.into_iter().map(|c| c.len()).collect::<Vec<_>>();
-    result.sort_unstable();
-
-    let mut previous = 2;
-    let mut count = 0;
-
-    for i in result {
-        if i != previous {
-            if count > 0 {
-                println!("{:?}: {:?}", previous, count);
-            }
-            previous = i;
-            count = 1;
-        }
-        count += 1;
-    }
-
-    if count > 0 {
-        println!("{:?}: {:?}", previous, count);
-    }
-}
+// fn display(result: Vec<Vec<usize>>) {
+//     let mut result = result.into_iter().map(|c| c.len()).collect::<Vec<_>>();
+//     result.sort_unstable();
+// 
+//     let mut previous = 2;
+//     let mut count = 0;
+// 
+//     for i in result {
+//         if i != previous {
+//             if count > 0 {
+//                 println!("{:?}: {:?}", previous, count);
+//             }
+//             previous = i;
+//             count = 1;
+//         }
+//         count += 1;
+//     }
+// 
+//     if count > 0 {
+//         println!("{:?}: {:?}", previous, count);
+//     }
+// }
 
 pub(crate) fn find_indistinguishable<T, F>(n: usize, connected: bool, embed: F) -> Vec<Vec<usize>>
 where
