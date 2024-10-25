@@ -1,0 +1,47 @@
+2024S2 GNN ASC
+==============
+
+Requirements:
+```
+cargo
+geng
+gshow
+```
+`cargo` can be installed here:
+https://www.rust-lang.org/
+
+`geng` and `gshow` are part of the `nauty` package and can be downloaded here:
+https://users.cecs.anu.edu.au/~bdm/nauty/
+`nauty` can also be installed using `brew` (at your own risk).
+
+Prior to running the code, run `./gen.sh`. That will generate the following
+files in the project directory:
+```
+4.0K	graphs1.txt
+4.0K	graphs2.txt
+4.0K	graphs3.txt
+4.0K	graphs4.txt
+4.0K	graphs5.txt
+4.0K	graphs6.txt
+8.0K	graphs7.txt
+ 88K	graphs8.txt
+2.1M	graphs9.txt
+114M	graphs10.txt
+
+4.0K	cgraphs1.txt
+4.0K	cgraphs2.txt
+4.0K	cgraphs3.txt
+4.0K	cgraphs4.txt
+4.0K	cgraphs5.txt
+4.0K	cgraphs6.txt
+8.0K	cgraphs7.txt
+ 76K	cgraphs8.txt
+2.0M	cgraphs9.txt
+112M	cgraphs10.txt
+```
+
+Then the code can be run using `cargo` i.e. `cargo run --release`.
+
+Whether to compute for connected graphs or all graphs, and the maximum number of
+vertices to compute for can be changed at the top of the `main` function in
+`main.rs`.

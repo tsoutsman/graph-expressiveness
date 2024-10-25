@@ -1,0 +1,9 @@
+[package]
+name = "brute-force-gnn"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+blake3 = "=1.5.4"
+fxhash = "0.2.1"
+nalgebra = "=0.33.0"
